@@ -22,7 +22,6 @@ app.get("/", (req, res) => {
       })
       .pipe(res);
   } catch (error) {
-    console.log(error);
     if (!res.headersSent) res.sendStatus(500);
   }
 });
