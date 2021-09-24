@@ -7,7 +7,7 @@ require("dotenv/config");
 app.use(cors({ origin: true }));
 
 app.get("/", (req, res) => {
-  if (!req.query.url) res.send("Cors bypasser. Query parameter url is required");
+  if (!req.query.url) res.sendFile(__dirname + "/index.html");
 
   try {
     request
