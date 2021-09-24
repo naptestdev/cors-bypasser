@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Word API</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 100;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      table {
+        width: 100%;
+        overflow: auto;
+        border-spacing: 10px;
+        border: 1px solid #ececec;
+      }
+
+      table * {
+        text-align: left;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #181a1b;
+        }
+        *,
+        a {
+          color: #e8e6e3;
+        }
+        table {
+          border: 1px solid #353a3c;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Cors Bypasser</h1>
+    <div style="padding: 0 10%">
+      <h3><span style="color: #1e90ff">GET</span> /</h3>
+      <h4>Parameters</h4>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Needed</th>
+          <th>Usage</th>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>Optional</td>
+          <td>URL to be requested. Leave it blank to see homepage</td>
+        </tr>
+        <tr>
+          <td>origin</td>
+          <td>Optional</td>
+          <td>Maximum length of the word. Leave it blank to clear the header</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
