@@ -7,7 +7,7 @@ require("dotenv/config");
 app.use(cors({ origin: true }));
 
 app.get("/", (req, res) => {
-  if (!req.query.url) res.sendFile(__dirname + "/index.html");
+  if (!req.query.url) return res.sendFile(__dirname + "/index.html");
 
   try {
     request
