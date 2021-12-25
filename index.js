@@ -6,23 +6,25 @@ require("dotenv/config");
 
 app.use(cors({ origin: true }));
 
-app.get("/", (req, res) => {
-  if (!req.query.url) return res.sendFile(__dirname + "/index.html");
-
-  try {
-    request
-      .get(req.query.url, {
-        headers: req.query.origin
-          ? {
-              origin: req.query.origin,
-              referer: req.query.origin,
-              referrer: req.query.origin,
-            }
-          : {},
-      })
-      .pipe(res);
-  } catch (error) {
-    if (!res.headersSent) res.sendStatus(500);
+app.use("*", (req, res) => {
+  if (req.originalUrl === "/") {
+    res.send("Cors Bypasser. Just go to /:url to use the proxy");
+  } else {
+    try {
+      request
+        .get(req.originalUrl.slice(1), {
+          headers: req.query.origin
+            ? {
+                origin: req.query.origin,
+                referer: req.query.origin,
+                referrer: req.query.origin,
+              }
+            : {},
+        })
+        .pipe(res);
+    } catch (error) {
+      if (!res.headersSent) res.sendStatus(500);
+    }
   }
 });
 
