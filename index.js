@@ -6,9 +6,8 @@ require("dotenv/config");
 
 app.use(cors({ origin: true }));
 
-app.get("*", (req, res) => {
-  if (!req.query.url)
-    res.send("Cors Bypasser. Just go to /:url to use the proxy");
+app.get("/", (req, res) => {
+  if (!req.query.url) res.send(`Cors Bypasser. "url" params is required.`);
   else {
     try {
       request
