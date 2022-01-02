@@ -33,13 +33,7 @@ app.use("*", (req, res) => {
     try {
       request(req.originalUrl.slice(1), {
         method: req.method,
-        headers: req.query.origin
-          ? {
-            origin: req.query.origin,
-            referer: req.query.origin,
-            referrer: req.query.origin,
-          }
-          : {},
+        headers: req.headers,
         body: req.body,
       }).pipe(res);
     } catch (error) {
