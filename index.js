@@ -27,20 +27,6 @@ app.get("/", (req, res) => {
   }
 });
 
-app.use("*", (req, res) => {
-  if (!req.originalUrl) return res.sendStatus(400);
-  else {
-    try {
-      request(req.originalUrl.slice(1), {
-        method: req.method,
-        headers: req.headers,
-        body: req.body,
-      }).pipe(res);
-    } catch (error) {
-      if (!res.headersSent) res.sendStatus(500);
-    }
-  }
-})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
